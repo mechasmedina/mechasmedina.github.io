@@ -104,7 +104,7 @@ nav {
 .logos-section h2 { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:600; text-align:center; margin-bottom:2rem; }
 .logos-track { overflow:hidden; }
 .logos-marquee { display:flex; gap:4.5rem; align-items:center; animation:marquee 40s linear infinite; width:max-content; }
-.logos-marquee img { height:58px; object-fit:contain; filter:grayscale(1) opacity(0.5); transition:filter 0.3s; flex-shrink:0; }
+.logos-marquee img { height:100px; object-fit:contain; filter:grayscale(1) opacity(0.5); transition:filter 0.3s; flex-shrink:0; }
 .logos-marquee img:hover { filter:grayscale(0) opacity(1); }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
@@ -186,6 +186,9 @@ nav {
 .port-img { margin-top:3rem; width:100%; display:block; }
 .port-video { margin-top:3rem; width:100%; aspect-ratio:16/9; }
 .port-video iframe { width:100%; height:100%; border:0; }
+.port-gallery { margin-top:3rem; display:grid; grid-template-columns:repeat(3,1fr); gap:0.6rem; }
+.port-gallery img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+@media(max-width:768px) { .port-gallery { grid-template-columns:repeat(2,1fr); } }
 
 /* CONTACT */
 .contact-wrap { padding:6rem 2rem 4rem; max-width:1080px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start; }
@@ -233,7 +236,7 @@ footer a:hover { color:var(--dark-text); }
   .service-card { border:1px solid var(--gray-mid); margin-bottom:0.5rem; }
 
   .logos-section { padding:2rem 1.5rem; }
-  .logos-marquee img { height:40px; }
+  .logos-marquee img { height:70px; }
 
   .testimonials-section { padding:3rem 1.5rem; }
   .testimonials-grid { grid-template-columns:1fr; gap:1rem; }
@@ -390,24 +393,24 @@ footer a:hover { color:var(--dark-text); }
     <div class="testimonials-grid">
       <div class="t-card fu">
         <div class="qi">"</div>
-        <h4>"She keeps everything on track without the drama."</h4>
-        <p>Working with Mechas means deadlines are real, briefs are clear, and nobody drops the ball. She's the kind of PM every creative team needs.</p>
-        <div class="t-author">Creative Director</div>
-        <div class="t-role">JWT Colombia</div>
+        <h4>"Experiencia y Profesionalismo"</h4>
+        <p>Su capacidad resolutiva, creatividad e inteligencia emocional permitió que el alto volumen de trabajo diario se convirtiera en entregables de alta calidad. Una partner en todo el sentido de la palabra.</p>
+        <div class="t-author">Angelica Escruceria</div>
+        <div class="t-role">CEO VLM Colombia</div>
       </div>
       <div class="t-card fu">
         <div class="qi">"</div>
-        <h4>"Mechas was the backbone of every project."</h4>
-        <p>From e-commerce launches to Web3 initiatives, she managed up to 10 concurrent projects with precision and calm. I'd work with her again in a heartbeat.</p>
-        <div class="t-author">VP of Product</div>
-        <div class="t-role">Encantos Media Studios</div>
+        <h4>"Organizational Maestro"</h4>
+        <p>Mechas is always the first to figure out any challenge, identifying and then managing platforms for whatever it is needed. She works seamlessly in English or Spanish, in any geography, and truly, in any capacity required.</p>
+        <div class="t-author">Julie Fleischer</div>
+        <div class="t-role">Forbes 50 Entrepreneurial CMOs</div>
       </div>
       <div class="t-card fu">
         <div class="qi">"</div>
-        <h4>"She speaks both creative and developer."</h4>
-        <p>Rare to find someone who bridges both worlds so naturally. Mechas translated strategy into execution without losing the vision along the way.</p>
-        <div class="t-author">Founder</div>
-        <div class="t-role">The Good Wolf</div>
+        <h4>"The epitome of a problem-solver"</h4>
+        <p>She has the seemingly effortless ability to pick up new skills, remove roadblocks, and coordinate mountains of work. Any organization would be lucky to have her.</p>
+        <div class="t-author">Jen McKenzie</div>
+        <div class="t-role">Copy & Content Leader</div>
       </div>
     </div>
   </section>
@@ -560,7 +563,7 @@ footer a:hover { color:var(--dark-text); }
         <div class="port-overlay"><span>Campaign The Last Mask</span></div>
       </div>
       <div class="port-item" onclick="showProject('similac')">
-        <img src="Abbott-01.jpg" alt="TV Spot Similac">
+        <img src="abbott-01.jpg" alt="TV Spot Similac">
         <div class="port-overlay"><span>TV Spot Similac</span></div>
       </div>
     </div>
@@ -585,7 +588,15 @@ footer a:hover { color:var(--dark-text); }
         <div class="port-credits">Agency: Good Wolf<br>UX/UI: Coco<br>Dev: Reconstrukt<br>Project Manager: Mechas Medina</div>
       </div>
     </div>
-    <img class="port-img" src="Luxe-source01.png" alt="Website Luxe Source">
+    <div class="port-gallery">
+      <img src="Luxe-source01.png" alt="Luxe Source 1">
+      <img src="luxe-source02.png" alt="Luxe Source 2">
+      <img src="luxe-source03.png" alt="Luxe Source 3">
+      <img src="luxe-source04.png" alt="Luxe Source 4">
+      <img src="luxe-source05.png" alt="Luxe Source 5">
+      <img src="luxe-source06.png" alt="Luxe Source 6">
+      <img src="luxe-source07.png" alt="Luxe Source 7">
+    </div>
   </div>
   <footer><p>Mechas Medina © 2026</p><a href="#">Privacy Policy</a></footer>
 </div>
@@ -606,7 +617,15 @@ footer a:hover { color:var(--dark-text); }
         <div class="port-credits">Agency: Greta Design<br>UX/UI: Jose and Vicky<br>Development: Djamel Kadi<br>Project Manager: Mechas Medina</div>
       </div>
     </div>
-    <img class="port-img" src="afn-website01.png" alt="Website AFN">
+    <div class="port-gallery">
+      <img src="afn-website01.png" alt="AFN 1">
+      <img src="afn-website02.png" alt="AFN 2">
+      <img src="afn-website03.png" alt="AFN 3">
+      <img src="afn-website04.png" alt="AFN 4">
+      <img src="afn-website05.png" alt="AFN 5">
+      <img src="afn-website06.png" alt="AFN 6">
+      <img src="afn-website07.png" alt="AFN 7">
+    </div>
   </div>
   <footer><p>Mechas Medina © 2026</p><a href="#">Privacy Policy</a></footer>
 </div>
@@ -625,7 +644,17 @@ footer a:hover { color:var(--dark-text); }
         <p>Scope spanned a full DTC e-commerce launch with 100+ SKUs executed in two weeks, including inventory setup, pricing strategy, logistics coordination, and bilingual customer support. Also led Web3 initiatives and social growth campaigns, including a TikTok channel launch that reached 100K+ followers and 2M+ views within the first two weeks.</p>
       </div>
     </div>
-    <img class="port-img" src="encantos-01.png" alt="Encantos Canticos">
+    <div class="port-gallery">
+      <img src="encantos-01.png" alt="Encantos 1">
+      <img src="encantos-02.png" alt="Encantos 2">
+      <img src="encantos-03.png" alt="Encantos 3">
+      <img src="encantos-04.png" alt="Encantos 4">
+      <img src="encantos-05.png" alt="Encantos 5">
+      <img src="encantos-06.png" alt="Encantos 6">
+      <img src="encantos-07.png" alt="Encantos 7">
+      <img src="encantos-08.png" alt="Encantos 8">
+      <img src="encantos-09.png" alt="Encantos 9">
+    </div>
   </div>
   <footer><p>Mechas Medina © 2026</p><a href="#">Privacy Policy</a></footer>
 </div>
