@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bilingual project manager with 19+ years running digital and creative projects. Agile, remote-ready, results-driven.">
+<title>Mechas Medina · Freelance Project Manager | Digital & Creative Projects</title>
+<link rel="icon" type="image/png" href="assets/img/favicon-mechasmedina.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1e2235;
+  --salmon: #e8907a;
+  --salmon-hover: #d4785f;
+  --white: #ffffff;
+  --off-white: #f8f7f4;
+  --gray-light: #f0eeea;
+  --gray-mid: #e2dfd9;
+  --gray-text: #6b6b6b;
+  --dark-text: #1a1a2e;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Jost',sans-serif; font-weight:300; color:var(--dark-text); background:var(--white); overflow-x:hidden; }
+
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 2.5rem; background:var(--navy);
+}
+.nav-brand { display:flex; align-items:center; gap:0.6rem; text-decoration:none; cursor:pointer; }
+.nav-logo-circle {
+  width:36px; height:36px; border-radius:50%;
+  background:var(--salmon); display:flex; align-items:center; justify-content:center;
+  font-family:'Cormorant Garamond',serif; font-weight:700; font-size:1rem; color:var(--white);
+}
+.nav-brand-name { font-size:0.85rem; font-weight:500; color:var(--white); display:block; }
+.nav-brand-title { font-size:0.7rem; color:rgba(255,255,255,0.5); font-weight:300; display:block; }
+.nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+.nav-links a { text-decoration:none; color:rgba(255,255,255,0.75); font-size:0.82rem; font-weight:400; transition:color 0.2s; cursor:pointer; }
+.nav-links a:hover { color:var(--white); }
+.nav-active a { color:var(--salmon) !important; }
+
+/* HAMBURGER */
+.nav-toggle { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
+.nav-toggle span { display:block; width:22px; height:2px; background:rgba(255,255,255,0.8); transition:all 0.3s; }
+
+.page { display:none; }
+.page.active { display:block; }
+.port-inner { display:none; }
+.port-inner.active { display:block; }
+
+/* HERO */
+.hero {
+  background:var(--navy); min-height:62vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:7rem 2rem 3rem;
+}
+.hero h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,6vw,5rem); font-weight:600;
+  color:var(--white); letter-spacing:-0.01em; line-height:1.05; margin-bottom:1rem;
+}
+.hero-sub { color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.7; max-width:440px; margin:0 auto 2rem; }
+.btn-salmon {
+  display:inline-block; background:var(--salmon); color:var(--white);
+  padding:0.7rem 2rem; text-decoration:none; font-size:0.82rem;
+  font-weight:400; letter-spacing:0.04em; transition:background 0.2s;
+  border:none; cursor:pointer; font-family:'Jost',sans-serif; border-radius:1px;
+}
+.btn-salmon:hover { background:var(--salmon-hover); }
+.hero-line { width:1px; height:45px; background:rgba(255,255,255,0.2); margin:2.5rem auto 0; }
+
+/* INTRO */
+.intro-band { padding:4rem 2rem; text-align:center; background:var(--white); }
+.intro-band h2 {
+  font-family:'Cormorant Garamond',serif; font-size:clamp(1.5rem,2.8vw,2.2rem);
+  font-weight:600; max-width:700px; margin:0 auto 1rem; line-height:1.3;
+}
+.intro-band p { max-width:580px; margin:0 auto 1.5rem; color:var(--gray-text); font-size:0.92rem; line-height:1.8; }
+
+/* SERVICES */
+.services-section { padding:3rem 2rem 4rem; background:var(--white); }
+.services-section h2 {
+  font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,3vw,2.4rem);
+  font-weight:600; text-align:center; margin-bottom:0.3rem;
+}
+.services-section .sub { text-align:center; color:var(--gray-text); font-size:0.88rem; margin-bottom:2.5rem; font-style:italic; }
+.services-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+  max-width:1080px; margin:0 auto; border:1px solid var(--gray-mid);
+}
+.service-card { padding:1.5rem; border:1px solid var(--gray-mid); }
+.service-img { width:100%; height:130px; object-fit:cover; margin-bottom:0.8rem; display:block; background:var(--gray-light); }
+.service-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:600; margin-bottom:0.5rem; }
+.service-card p { font-size:0.82rem; color:var(--gray-text); line-height:1.7; }
+.svc-cta { text-align:center; margin-top:2rem; }
+
+/* LOGOS */
+.logos-section { padding:3rem 2rem; background:var(--white); overflow:hidden; }
+.logos-section h2 { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:600; text-align:center; margin-bottom:2rem; }
+.logos-track { overflow:hidden; }
+.logos-marquee { display:flex; gap:4.5rem; align-items:center; animation:marquee 40s linear infinite; width:max-content; }
+.logos-marquee img { height:58px; object-fit:contain; filter:grayscale(1) opacity(0.5); transition:filter 0.3s; flex-shrink:0; }
+.logos-marquee img:hover { filter:grayscale(0) opacity(1); }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* TESTIMONIALS */
+.testimonials-section { background:var(--navy); padding:4rem 2rem; }
+.testimonials-section h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,3vw,2.4rem); font-weight:600; text-align:center; color:var(--white); margin-bottom:2.5rem; }
+.testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; max-width:1080px; margin:0 auto; }
+.t-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:2rem; }
+.t-card .qi { font-size:2.2rem; color:var(--salmon); font-family:Georgia,serif; line-height:1; margin-bottom:0.6rem; }
+.t-card h4 { font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600; color:var(--white); font-style:italic; margin-bottom:0.7rem; }
+.t-card p { font-size:0.83rem; color:rgba(255,255,255,0.72); line-height:1.8; margin-bottom:1.2rem; }
+.t-author { font-size:0.85rem; font-weight:500; color:var(--white); }
+.t-role { font-size:0.78rem; color:rgba(255,255,255,0.4); margin-top:0.15rem; }
+
+/* CTA BOTTOM */
+.cta-bottom { padding:4rem 2rem; text-align:center; background:var(--off-white); }
+.cta-bottom .illus { font-size:3.5rem; margin-bottom:1rem; }
+.cta-bottom h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,3vw,2.2rem); font-weight:600; margin-bottom:1.5rem; }
+
+/* ABOUT */
+.about-wrap { padding:6rem 2rem 4rem; max-width:1080px; margin:0 auto; }
+.about-wrap h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; margin-bottom:2rem; }
+.about-grid { display:grid; grid-template-columns:340px 1fr; gap:4rem; align-items:start; }
+.about-photo { width:100%; display:block; }
+.about-content p { font-size:0.92rem; color:var(--gray-text); line-height:1.9; margin-bottom:1.1rem; }
+.strengths-block { margin-top:1.5rem; }
+.strengths-block h3 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; margin-bottom:0.8rem; }
+.strength { padding:0.5rem 0; border-bottom:1px solid var(--gray-mid); font-size:0.88rem; color:var(--gray-text); }
+.strength::before { content:'– '; color:var(--salmon); }
+.about-quote { margin-top:2rem; padding:1.5rem 1.5rem 1.5rem 1.8rem; background:var(--off-white); border-left:3px solid var(--salmon); }
+.about-quote blockquote { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem; line-height:1.8; color:var(--dark-text); margin-bottom:0.8rem; }
+.about-quote cite { font-size:0.83rem; color:var(--gray-text); }
+
+/* SERVICES PAGE */
+.svc-wrap { padding:6rem 2rem 4rem; max-width:1080px; margin:0 auto; }
+.svc-wrap h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; margin-bottom:0.8rem; }
+.svc-wrap .intro { font-size:0.92rem; color:var(--gray-text); line-height:1.8; max-width:680px; margin-bottom:3rem; }
+.svc-grid { display:grid; grid-template-columns:repeat(2,1fr); border:1px solid var(--gray-mid); margin-bottom:4rem; }
+.svc-item { padding:2.2rem; border:1px solid var(--gray-mid); }
+.svc-item h3 { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:600; margin-bottom:0.7rem; }
+.svc-item p { font-size:0.88rem; color:var(--gray-text); line-height:1.8; }
+.plans-h { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,3vw,2.4rem); font-weight:700; margin-bottom:0.5rem; }
+.plans-sub { color:var(--gray-text); font-size:0.88rem; margin-bottom:2rem; max-width:560px; }
+.plans-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+.plan-card { border:1px solid var(--gray-mid); padding:2rem; }
+.plan-card.feat { background:var(--navy); color:var(--white); border-color:var(--navy); }
+.plan-name { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:700; margin-bottom:0.2rem; }
+.plan-tag { font-size:0.75rem; color:var(--salmon); letter-spacing:0.08em; text-transform:uppercase; font-weight:500; margin-bottom:0.8rem; }
+.plan-desc { font-size:0.83rem; color:var(--gray-text); line-height:1.7; margin-bottom:1rem; }
+.feat .plan-desc { color:rgba(255,255,255,0.6); }
+.plan-list { list-style:none; margin-bottom:1.5rem; }
+.plan-list li { font-size:0.83rem; padding:0.35rem 0; border-bottom:1px solid var(--gray-mid); display:flex; gap:0.5rem; }
+.feat .plan-list li { border-color:rgba(255,255,255,0.1); color:rgba(255,255,255,0.8); }
+.plan-list li::before { content:'✓'; color:var(--salmon); font-weight:700; flex-shrink:0; }
+
+/* PORTFOLIO */
+.port-wrap { padding:6rem 2rem 4rem; max-width:1080px; margin:0 auto; }
+.port-wrap h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; margin-bottom:0.8rem; }
+.port-wrap .intro { font-size:0.92rem; color:var(--gray-text); line-height:1.8; margin-bottom:2.5rem; }
+.port-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.port-item { cursor:pointer; position:relative; overflow:hidden; aspect-ratio:1; background:var(--gray-light); }
+.port-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.4s; display:block; }
+.port-item:hover img { transform:scale(1.06); }
+.port-overlay { position:absolute; inset:0; background:rgba(30,34,53,0.82); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; padding:1.2rem; text-align:center; }
+.port-item:hover .port-overlay { opacity:1; }
+.port-overlay span { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:600; color:var(--white); font-style:italic; }
+
+/* PORTFOLIO INNER */
+.port-inner-wrap { padding:6rem 2rem 4rem; max-width:1080px; margin:0 auto; }
+.port-back { display:inline-flex; align-items:center; gap:0.5rem; color:var(--gray-text); text-decoration:none; font-size:0.85rem; margin-bottom:2.5rem; transition:color 0.2s; cursor:pointer; }
+.port-back:hover { color:var(--salmon); }
+.port-layout { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+.port-left h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; margin-bottom:1.2rem; line-height:1.1; }
+.port-label { font-size:0.75rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--dark-text); margin-bottom:0.2rem; margin-top:1rem; }
+.port-val { font-size:0.9rem; color:var(--gray-text); }
+.port-val a { color:var(--salmon); text-decoration:none; }
+.port-right p { font-size:0.92rem; color:var(--gray-text); line-height:1.9; margin-bottom:1rem; }
+.port-credits { font-size:0.88rem; color:var(--gray-text); line-height:2.1; }
+.port-img { margin-top:3rem; width:100%; display:block; }
+
+/* CONTACT */
+.contact-wrap { padding:6rem 2rem 4rem; max-width:1080px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start; }
+.contact-left h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; margin-bottom:0.6rem; line-height:1.1; }
+.contact-left .letstalk { font-style:italic; color:var(--salmon); font-size:0.95rem; margin-bottom:1.2rem; }
+.contact-left p { font-size:0.9rem; color:var(--gray-text); line-height:1.8; margin-bottom:1.5rem; }
+.contact-social { display:inline-flex; align-items:center; gap:0.5rem; color:var(--gray-text); text-decoration:none; font-size:0.88rem; margin-top:0.8rem; transition:color 0.2s; }
+.contact-social:hover { color:var(--dark-text); }
+.contact-right h2 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:600; margin-bottom:1.5rem; }
+.fg { margin-bottom:0.9rem; }
+.fg label { display:block; font-size:0.72rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray-text); margin-bottom:0.35rem; }
+.fg input, .fg textarea { width:100%; padding:0.75rem 0.9rem; border:1px solid var(--gray-mid); background:var(--white); font-family:'Jost',sans-serif; font-size:0.88rem; font-weight:300; color:var(--dark-text); outline:none; transition:border-color 0.2s; border-radius:1px; }
+.fg input:focus, .fg textarea:focus { border-color:var(--salmon); }
+.fg textarea { min-height:110px; resize:vertical; }
+.form-ok { color:var(--salmon); font-size:0.85rem; margin-top:0.7rem; display:none; }
+
+/* FOOTER */
+footer { padding:1.2rem 2.5rem; background:var(--white); border-top:1px solid var(--gray-mid); display:flex; align-items:center; justify-content:space-between; }
+footer p { font-size:0.78rem; color:var(--gray-text); }
+footer a { font-size:0.78rem; color:var(--gray-text); text-decoration:none; }
+footer a:hover { color:var(--dark-text); }
+
+/* FADE */
+.fu { opacity:0; transform:translateY(18px); transition:opacity 0.6s ease,transform 0.6s ease; }
+.fu.vis { opacity:1; transform:translateY(0); }
+
+@media(max-width:768px) {
+  nav { padding:0.9rem 1.2rem; }
+  .nav-links { display:none; position:absolute; top:100%; left:0; right:0; background:var(--navy); flex-direction:column; gap:0; padding:0.5rem 0; }
+  .nav-links.open { display:flex; }
+  .nav-links li { width:100%; }
+  .nav-links li a { display:block; padding:0.8rem 1.5rem; border-bottom:1px solid rgba(255,255,255,0.05); }
+  .nav-toggle { display:flex; }
+  .about-grid, .port-layout, .contact-wrap { grid-template-columns:1fr; gap:2rem; }
+  .services-grid, .svc-grid, .testimonials-grid, .plans-grid, .port-grid { grid-template-columns:1fr; }
+  .port-grid { grid-template-columns:repeat(2,1fr); }
+  .about-wrap,.svc-wrap,.port-wrap,.port-inner-wrap { padding:5rem 1.2rem 3rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand" onclick="showPage('home')">
+    <div class="nav-logo-circle">M</div>
+    <div>
+      <span class="nav-brand-name">Mechas Medina</span>
+      <span class="nav-brand-title">Project Manager</span>
+    </div>
+  </div>
+  <ul class="nav-links" id="nav-menu">
+    <li id="nl-home" class="nav-active"><a onclick="showPage('home')">Home</a></li>
+    <li id="nl-about"><a onclick="showPage('about')">About Me</a></li>
+    <li id="nl-services"><a onclick="showPage('services')">Services & Plans</a></li>
+    <li id="nl-portfolio"><a onclick="showPage('portfolio')">Portfolio</a></li>
+    <li id="nl-contact"><a onclick="showPage('contact')">Contact</a></li>
+    <li><a href="https://www.linkedin.com/in/mechasmedina" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a></li>
+  </ul>
+  <div class="nav-toggle" id="nav-toggle" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <section class="hero">
+    <h1>Your Project, delivered</h1>
+    <p class="hero-sub">19+ years managing digital and creative projects<br>from web builds to full marketing campaigns.</p>
+    <a onclick="showPage('services')" class="btn-salmon">See How I Work</a>
+    <div class="hero-line"></div>
+  </section>
+
+  <section class="intro-band">
+    <h2>Mechas Medina — a bilingual project manager based in LATAM, working with global teams.</h2>
+    <p>I bridge the gap between creative teams, developers, and stakeholders so projects actually ship on time, on budget, and without the chaos. Integrating AI tools into my workflow to move faster, document smarter, and keep every project running at its best.</p>
+    <a onclick="showPage('about')" class="btn-salmon">Get to know me</a>
+  </section>
+
+  <section class="services-section">
+    <h2>How can I help?</h2>
+    <p class="sub">Tell me what you're building. I'll help you structure it, run it, and deliver it.</p>
+    <div class="services-grid">
+      <div class="service-card fu">
+        <img class="service-img" src="assets/img/service-pm.jpg" alt="Project Management" onerror="this.style.display='none'">
+        <h3>Project Management</h3>
+        <p>End-to-end ownership. From kickoff to delivery, I keep the work moving and the team aligned.</p>
+      </div>
+      <div class="service-card fu">
+        <img class="service-img" src="assets/img/service-agile.png" alt="Agile Methods" onerror="this.style.display='none'">
+        <h3>Agile Methods</h3>
+        <p>Structured sprints, clear priorities, no wasted cycles. I implement what actually works for your team.</p>
+      </div>
+      <div class="service-card fu">
+        <img class="service-img" src="assets/img/service-digital.png" alt="Digital Transformation" onerror="this.style.display='none'">
+        <h3>Digital Transformation</h3>
+        <p>Ready to modernize how you work? I help teams adopt new tools and processes without the friction.</p>
+      </div>
+      <div class="service-card fu">
+        <img class="service-img" src="assets/img/service-ai.png" alt="AI-Augmented PM" onerror="this.style.display='none'">
+        <h3>AI-Augmented Project Management</h3>
+        <p>I integrate AI tools into my workflow — from automating reporting to streamlining briefs — so projects run leaner, and teams stay focused on what matters.</p>
+      </div>
+      <div class="service-card fu">
+        <img class="service-img" src="assets/img/service-consulting.png" alt="Strategic Consulting" onerror="this.style.display='none'">
+        <h3>Strategic Consulting</h3>
+        <p>A fresh pair of eyes on your operations. I find what's slowing you down and fix it.</p>
+      </div>
+      <div class="service-card fu">
+        <img class="service-img" src="assets/img/service-web.png" alt="Web & Digital Marketing" onerror="this.style.display='none'">
+        <h3>Web & Digital Marketing</h3>
+        <p>PM perspective on web builds and marketing campaigns, aligning business goals, tech, and user experience.</p>
+      </div>
+    </div>
+    <div class="svc-cta"><a onclick="showPage('services')" class="btn-salmon">See Plans</a></div>
+  </section>
+
+  <section class="logos-section">
+    <h2>Brands I've worked with</h2>
+    <div class="logos-track">
+      <div class="logos-marquee">
+        <img src="assets/img/logo-abbott.png" alt="Abbott">
+        <img src="assets/img/logo-avianca.png" alt="Avianca">
+        <img src="assets/img/logo-banco-cajasocial.png" alt="Banco Caja Social">
+        <img src="assets/img/logo-claro.png" alt="Claro">
+        <img src="assets/img/logo-colmena.png" alt="Colmena">
+        <img src="assets/img/logo-encantos.png" alt="Encantos">
+        <img src="assets/img/logo-kimbery.png" alt="Kimbery">
+        <img src="assets/img/logo-lamuvi.png" alt="Lamuvi">
+        <img src="assets/img/logo-luxe.png" alt="Luxe">
+        <img src="assets/img/logo-mazda.png" alt="Mazda">
+        <img src="assets/img/logo-mechasmedina.png" alt="Mechas Medina">
+        <img src="assets/img/logo-nestle.png" alt="Nestlé">
+        <img src="assets/img/logo-Panamajacl.png" alt="Panamajacl">
+        <img src="assets/img/logo-pantheon.png" alt="Pantheon">
+        <img src="assets/img/logo-rhayuela.png" alt="Rhayuela">
+        <img src="assets/img/logo-samplize.png" alt="Samplize">
+        <img src="assets/img/logo-sanchobbdo.png" alt="Sancho BBDO">
+        <img src="assets/img/logo-terpel.png" alt="Terpel">
+        <img src="assets/img/logo-universal.png" alt="Universal">
+        <img src="assets/img/logo-wunderman.png" alt="Wunderman">
+        <!-- Duplicate set for seamless loop -->
+        <img src="assets/img/logo-abbott.png" alt="Abbott">
+        <img src="assets/img/logo-avianca.png" alt="Avianca">
+        <img src="assets/img/logo-banco-cajasocial.png" alt="Banco Caja Social">
+        <img src="assets/img/logo-claro.png" alt="Claro">
+        <img src="assets/img/logo-colmena.png" alt="Colmena">
+        <img src="assets/img/logo-encantos.png" alt="Encantos">
+        <img src="assets/img/logo-kimbery.png" alt="Kimbery">
+        <img src="assets/img/logo-lamuvi.png" alt="Lamuvi">
+        <img src="assets/img/logo-luxe.png" alt="Luxe">
+        <img src="assets/img/logo-mazda.png" alt="Mazda">
+        <img src="assets/img/logo-mechasmedina.png" alt="Mechas Medina">
+        <img src="assets/img/logo-nestle.png" alt="Nestlé">
+        <img src="assets/img/logo-Panamajacl.png" alt="Panamajacl">
+        <img src="assets/img/logo-pantheon.png" alt="Pantheon">
+        <img src="assets/img/logo-rhayuela.png" alt="Rhayuela">
+        <img src="assets/img/logo-samplize.png" alt="Samplize">
+        <img src="assets/img/logo-sanchobbdo.png" alt="Sancho BBDO">
+        <img src="assets/img/logo-terpel.png" alt="Terpel">
+        <img src="assets/img/logo-universal.png" alt="Universal">
+        <img src="assets/img/logo-wunderman.png" alt="Wunderman">
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-section">
+    <h2>What people say</h2>
+    <div class="testimonials-grid">
+      <div class="t-card fu">
+        <div class="qi">"</div>
+        <h4>"She keeps everything on track without the drama."</h4>
+        <p>Working with Mechas means deadlines are real, briefs are clear, and nobody drops the ball. She's the kind of PM every creative team needs.</p>
+        <div class="t-author">Creative Director</div>
+        <div class="t-role">JWT Colombia</div>
+      </div>
+      <div class="t-card fu">
+        <div class="qi">"</div>
+        <h4>"Mechas was the backbone of every project."</h4>
+        <p>From e-commerce launches to Web3 initiatives, she managed up to 10 concurrent projects with precision and calm. I'd work with her again in a heartbeat.</p>
+        <div class="t-author">VP of Product</div>
+        <div class="t-role">Encantos Media Studios</div>
+      </div>
+      <div class="t-card fu">
+        <div class="qi">"</div>
+        <h4>"She speaks both creative and developer."</h4>
+        <p>Rare to find someone who bridges both worlds so naturally. Mechas translated strategy into execution without losing the vision along the way.</p>
+        <div class="t-author">Founder</div>
+        <div class="t-role">The Good Wolf</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-bottom">
+    <div class="illus">→</div>
+    <h2>Ready to get your project moving?</h2>
+    <a onclick="showPage('contact')" class="btn-salmon">Let's talk</a>
+  </section>
+
+  <footer><p>Mechas Medina · © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+  <div class="about-wrap">
+    <h1>About Me</h1>
+    <div class="about-grid">
+      <div>
+        <img class="about-photo" src="assets/img/headshot-mechasmedina.jpeg" alt="Mechas Medina">
+      </div>
+      <div class="about-content">
+        <p>I'm Mechas Medina — a bilingual project manager with 19+ years running digital and creative projects across Latin America and globally. I've worked inside agencies, startups, and media companies, always in the space where ideas meet execution.</p>
+        <p>My background spans advertising production, digital platforms, e-commerce, content, and Web3. I'm Scrum-certified and I integrate AI tools into my daily workflow to move faster and document smarter.</p>
+        <p>I'm based in Mexico City and work with teams remotely across time zones. I care about clarity, momentum, and making sure the work actually ships.</p>
+        <div class="strengths-block">
+          <h3>What I bring</h3>
+          <div class="strength">19+ years in creative & digital production</div>
+          <div class="strength">Bilingual (Spanish / English)</div>
+          <div class="strength">Scrum Master certified</div>
+          <div class="strength">AI-augmented workflow</div>
+          <div class="strength">Remote-ready, async-friendly</div>
+          <div class="strength">Agency & startup experience</div>
+        </div>
+        <div class="about-quote">
+          <blockquote>"The best project managers are invisible when things go right — and essential when they don't."</blockquote>
+          <cite>— How I think about the work</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer><p>Mechas Medina · © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<!-- SERVICES -->
+<div id="services" class="page">
+  <div class="svc-wrap">
+    <h1>Services & Plans</h1>
+    <p class="intro">Whether you need a full-time PM embedded in your team or focused support for a specific project, I adapt to what the work actually requires.</p>
+    <div class="svc-grid">
+      <div class="svc-item fu">
+        <h3>Project Management</h3>
+        <p>End-to-end ownership from kickoff to delivery. I manage timelines, budgets, stakeholders, and teams — keeping everything moving without the chaos.</p>
+      </div>
+      <div class="svc-item fu">
+        <h3>Agile & Scrum Implementation</h3>
+        <p>Sprint planning, backlog grooming, retrospectives. I implement what actually works for your team — not just the textbook version.</p>
+      </div>
+      <div class="svc-item fu">
+        <h3>Digital Transformation</h3>
+        <p>Adopting new tools, restructuring workflows, or modernizing operations. I help teams make the transition without losing momentum.</p>
+      </div>
+      <div class="svc-item fu">
+        <h3>AI-Augmented PM</h3>
+        <p>I integrate AI tools into project workflows — from automated reporting to brief generation — so your team stays focused on what matters.</p>
+      </div>
+      <div class="svc-item fu">
+        <h3>Strategic Consulting</h3>
+        <p>A fresh perspective on your operations. I identify bottlenecks, propose solutions, and help you build processes that scale.</p>
+      </div>
+      <div class="svc-item fu">
+        <h3>Web & Digital Marketing PM</h3>
+        <p>Managing web builds and marketing campaigns with a PM lens — aligning business goals, tech teams, and creative execution.</p>
+      </div>
+    </div>
+
+    <h2 class="plans-h">Plans</h2>
+    <p class="plans-sub">Flexible engagements designed around how modern teams actually work.</p>
+    <div class="plans-grid">
+      <div class="plan-card fu">
+        <div class="plan-name">Starter</div>
+        <div class="plan-tag">Project-based</div>
+        <p class="plan-desc">For one-off projects that need structure and delivery focus.</p>
+        <ul class="plan-list">
+          <li>Single project scope</li>
+          <li>Kickoff + weekly check-ins</li>
+          <li>Timeline & risk management</li>
+          <li>Final delivery report</li>
+        </ul>
+        <a onclick="showPage('contact')" class="btn-salmon">Get started</a>
+      </div>
+      <div class="plan-card feat fu">
+        <div class="plan-name">Pro</div>
+        <div class="plan-tag">Most popular</div>
+        <p class="plan-desc">For teams running multiple initiatives who need a dedicated PM.</p>
+        <ul class="plan-list">
+          <li>Up to 3 concurrent projects</li>
+          <li>Sprint planning & retrospectives</li>
+          <li>Stakeholder communication</li>
+          <li>AI-augmented reporting</li>
+          <li>Monthly strategy review</li>
+        </ul>
+        <a onclick="showPage('contact')" class="btn-salmon">Get started</a>
+      </div>
+      <div class="plan-card fu">
+        <div class="plan-name">Advisory</div>
+        <div class="plan-tag">Consulting</div>
+        <p class="plan-desc">For leaders who need strategic input without full PM engagement.</p>
+        <ul class="plan-list">
+          <li>Process audit & recommendations</li>
+          <li>Tool & workflow setup</li>
+          <li>Team training sessions</li>
+          <li>On-demand availability</li>
+        </ul>
+        <a onclick="showPage('contact')" class="btn-salmon">Get started</a>
+      </div>
+    </div>
+  </div>
+  <footer><p>Mechas Medina · © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<!-- PORTFOLIO -->
+<div id="portfolio" class="page">
+  <div class="port-wrap">
+    <h1>My Portfolio</h1>
+    <p class="intro">Welcome to my portfolio. Here you'll find a selection of my work. Click any project to learn more.</p>
+    <div class="port-grid">
+      <div class="port-item" onclick="showProject('luxe')">
+        <img src="assets/img/Luxe-source01.png" alt="Website Luxe Source">
+        <div class="port-overlay"><span>Website Luxe Source</span></div>
+      </div>
+      <div class="port-item" onclick="showProject('afn')">
+        <img src="assets/img/afn-website01.png" alt="Website AFN">
+        <div class="port-overlay"><span>Website – AFN</span></div>
+      </div>
+      <div class="port-item" onclick="showProject('encantos')">
+        <img src="assets/img/encantos-01.png" alt="Encantos">
+        <div class="port-overlay"><span>Encantos – Canticos</span></div>
+      </div>
+      <div class="port-item" onclick="showProject('colmena')">
+        <img src="assets/img/Colmena-01.jpg" alt="TV Spot Colmena">
+        <div class="port-overlay"><span>TV Spot – Colmena</span></div>
+      </div>
+      <div class="port-item" onclick="showProject('avianca')">
+        <img src="assets/img/Avianca-01.jpg" alt="TV Spot Avianca">
+        <div class="port-overlay"><span>TV Spot – Avianca</span></div>
+      </div>
+      <div class="port-item" onclick="showProject('mask')">
+        <img src="assets/img/Thelastmask-01.jpg" alt="The Last Mask">
+        <div class="port-overlay"><span>Campaign – The Last Mask</span></div>
+      </div>
+    </div>
+  </div>
+  <footer><p>Mechas Medina · © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<!-- PROJECT: LUXE -->
+<div id="proj-luxe" class="port-inner">
+  <div class="port-inner-wrap">
+    <a class="port-back" onclick="showPage('portfolio')">← Back to Portfolio</a>
+    <div class="port-layout">
+      <div class="port-left">
+        <h1>Website Luxe Source</h1>
+        <p class="port-label">Project Type</p><p class="port-val">Websites</p>
+        <p class="port-label" style="margin-top:1rem;">Link</p><p class="port-val"><a href="https://luxemagazine.net" target="_blank">Luxe Magazine</a></p>
+      </div>
+      <div class="port-right">
+        <p>Full-cycle UX/UI design and development engagement for Luxe Source, a premium luxury lifestyle platform.</p>
+        <p>Scope covered the design and build of new interactive modules including a lead generation quiz with HubSpot integration, first-time user experience (FTUE) with animated onboarding, tooltips, a Gold List page, events page, single-image URLs, and a paid "Premium" results ticker.</p>
+        <p>Development work included a brand refresh rollout with updated typography and logos, SEO-focused content archiving, tag cleanup, regional content filtering, and a video repository landing page. Full QA/UAT with nightly builds, site launch, analytics implementation, and ongoing program management with bi-weekly sprint planning — delivered in close collaboration with the Luxe internal team.</p>
+        <div class="port-credits">Agency: Good Wolf<br>UX/UI: Coco<br>Dev: Reconstrukt<br>Project Manager: Mechas Medina</div>
+      </div>
+    </div>
+    <img class="port-img" src="assets/img/Luxe-source01.png" alt="Website Luxe Source">
+  </div>
+  <footer><p>Mechas Medina · © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<!-- PROJECT: AFN -->
+<div id="proj-afn" class="port-inner">
+  <div class="port-inner-wrap">
+    <a class="port-back" onclick="showPage('portfolio')">← Back to Portfolio</a>
+    <div class="port-layout">
+      <div class="port-left">
+        <h1>Website – AFN</h1>
+        <p class="port-label">Project Type</p><p class="port-val">Websites</p>
+      </div>
+      <div class="port-right">
+        <p>End-to-end brand creation, strategic communications, and digital development for the Amazonia Finance Network, an IDB Invest initiative mobilizing sustainable finance across the Amazon basin.</p>
+        <p>Scope included the full visual identity system (logo, color palette, typography, and brand guidelines), trilingual content production in English, Spanish, and Portuguese across narrative, marketing, and event materials — including a content library, three-fold brochure, social media assets, and HD video production with voice-over and subtitles in all three languages.</p>
+        <p>The project also covered the design and WordPress development of the public-facing landing page at amazoniafinancenetwork.com, from wireframe through launch.</p>
+        <div class="port-credits">Agency: Greta Design<br>UX/UI: Jose and Vicky<br>Development: Djamel Kadi<br>Project Manager: Mechas Medina</div>
+      </div>
+    </div>
+    <img class="port-img" src="assets/img/afn-website01.png" alt="Website AFN">
+  </div>
+  <footer><p>Mechas Medina · © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<!-- PROJECT: ENCANTOS -->
+<div id="proj-encantos" class="port-inner">
+  <div class="port-inner-wrap">
+    <a class="port-back" onclick="showPage('portfolio')">← Back to Portfolio</a>
+    <div class="port-layout">
+      <div class="port-left">
+        <h1>Encantos – Canticos</h1>
+        <p class="port-label">Project Type</p><p class="port-val">Full Project</p>
+      </div>
+      <div class="port-right">
+        <p>Two-year engagement as Project Manager at Encantos, a children's media and edtech company, overseeing 30+ digital projects across web, e-commerce, paid media, app content, Web3, and social media — managing up to 10 concurrent initiatives from concept through launch within 4–6 week delivery cycles.</p>
+        <p>Scope spanned a full DTC e-commerce launch with 100+ SKUs executed in two weeks, including inventory setup, pricing strategy, logistics coordination, and bilingual customer support. Also led Web3 initiatives and social growth campaigns, including a TikTok channel launch that reached 100K+ followers and 2M+ views within the first two weeks.</p>
+      </div>
+    </div>
+    <img class="port-img" src="assets/img/encantos-01.png" alt="Encantos Canticos">
+  </div>
+  <footer><p>Mechas Medina · © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<!-- PROJECT: COLMENA -->
+<div id="proj-colmena" class="port-inner">
+  <div class="port-inner-wrap">
+    <a class="port-back" onclick="showPage('portfolio')">← Back to Portfolio</a>
+    <div class="port-layout">
+      <div class="port-left">
+        <h1>TV Spot – Colmena</h1>
+        <p class="port-label">Project Type</p><p class="port-val">Comerciales</p>
+      </div>
+      <div class="port-right">
+        <div class="port-credits">Agencia: J. Walter Thompson<br>Cliente: Colmena<br>Creativos: Albretch Bake y Paola Barrero<br>Productora: Demente<br>Director: Mauricio Pardo<br>Ilustración: Leo Espinosa<br>Animación: Life<br>Sonorización: Sonic Boom<br>Productora ejecutiva: Mechas Medina</div>
+      </div>
+    </div>
+    <img class="port-img" src="assets/img/Colmena-01.jpg" alt="TV Spot Colmena">
+  </div>
+  <footer><p>Mechas Medina · © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<!-- PROJECT: AVIANCA -->
+<div id="proj-avianca" class="port-inner">
+  <div class="port-inner-wrap">
+    <a class="port-back" onclick="showPage('portfolio')">← Back to Portfolio</a>
+    <div class="port-layout">
+      <div class="port-left">
+        <h1>TV Spot – Avianca</h1>
+        <p class="port-label">Project Type</p><p class="port-val">Comerciales</p>
+      </div>
+      <div class="port-right">
+        <div class="port-credits">Agencia: Sancho BBDO<br>Radio y tv: Ana Maria Arango<br>Creativos: Carolina Amaya / Emiliano Vargas<br>Productora: Rhayuela Films<br>Director: Jose Luis Rugeles<br>DP: Sergio Ivan Castaño<br>Prod ejecutiva: Mechas Medina<br>Asist Dir: Nicolas Martinez<br>Post: El Cisne<br>Sonorización: Sonica</div>
+      </div>
+    </div>
+    <img class="port-img" src="assets/img/Avianca-01.jpg" alt="TV Spot Avianca">
+  </div>
+  <footer><p>Mechas Medina · © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<!-- PROJECT: THE LAST MASK -->
+<div id="proj-mask" class="port-inner">
+  <div class="port-inner-wrap">
+    <a class="port-back" onclick="showPage('portfolio')">← Back to Portfolio</a>
+    <div class="port-layout">
+      <div class="port-left">
+        <h1>Campaign – The Last Mask</h1>
+        <p class="port-label">Project Type</p><p class="port-val">Pro Bono</p>
+      </div>
+      <div class="port-right">
+        <div class="port-credits">Cliente: Fundación Natalia Ponce de Leon<br>Agencia: J. Walter Thompson<br>VP Creativo: Rodolfo Borrel<br>Directores Creativos Ejecutivos: Claudia Murillo, Miguel Andres Norato<br>Director Creativos: Jaime Perea y Nicolas Acost<br>Copy Senior: Andres Peña<br>Directora de Arte: Claudia Castiblanco<br>Directora Producción: María Medina<br>Productora: Rhayuela Films<br>Director: Jaime Osorio<br>Productora ejecutiva: Ana Maria Tarazona<br>Postproducción: RMG Post<br>Sonorización: Sonic Boom</div>
+      </div>
+    </div>
+    <img class="port-img" src="assets/img/Thelastmask-01.jpg" alt="Campaign The Last Mask">
+  </div>
+  <footer><p>Mechas Medina · © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <h1>Let's get to work.</h1>
+      <p class="letstalk">let's talk</p>
+      <p>Got a project that needs structure, direction, or just someone to make it happen? Tell me what you're working on.</p>
+      <a href="https://calendly.com/hola-mechasmedina/30min" target="_blank" class="btn-salmon" style="display:inline-block;">Book a call</a>
+      <br>
+      <a href="https://www.linkedin.com/in/mechasmedina" target="_blank" class="contact-social">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="contact-right">
+      <h2>Drop me a line.</h2>
+      <div class="fg"><label>Name</label><input type="text" id="fn" placeholder="Your name"></div>
+      <div class="fg"><label>Company</label><input type="text" id="fc" placeholder="Your company"></div>
+      <div class="fg"><label>Email</label><input type="email" id="fe" placeholder="your@email.com"></div>
+      <div class="fg"><label>Subject</label><input type="text" id="fs" placeholder="What's this about?"></div>
+      <div class="fg"><label>Message</label><textarea id="fm" placeholder="Tell me about your project..."></textarea></div>
+      <button onclick="sendForm()" class="btn-salmon">Send</button>
+      <p class="form-ok" id="fok">Got it! I'll be in touch soon.</p>
+    </div>
+  </div>
+  <footer><p>Mechas Medina · © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<script>
+const PAGES = ['home','about','services','portfolio','contact'];
+
+function showPage(id) {
+  PAGES.forEach(p => {
+    document.getElementById(p).classList.remove('active');
+    const li = document.getElementById('nl-'+p);
+    if(li) li.classList.toggle('nav-active', p===id);
+  });
+  document.querySelectorAll('.port-inner').forEach(el => el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+  // Close mobile nav
+  document.getElementById('nav-menu').classList.remove('open');
+  initFU();
+}
+
+function showProject(slug) {
+  PAGES.forEach(p => document.getElementById(p).classList.remove('active'));
+  document.querySelectorAll('.port-inner').forEach(el => el.classList.remove('active'));
+  PAGES.forEach(p => { const li = document.getElementById('nl-'+p); if(li) li.classList.remove('nav-active'); });
+  const el = document.getElementById('proj-'+slug);
+  if(el) el.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function toggleNav() {
+  document.getElementById('nav-menu').classList.toggle('open');
+}
+
+function sendForm() {
+  const n = document.getElementById('fn').value;
+  const e = document.getElementById('fe').value;
+  if(!n||!e){alert('Please fill in your name and email.');return;}
+  const ok = document.getElementById('fok');
+  ok.style.display='block';
+  setTimeout(()=>{ok.style.display='none';},4000);
+}
+
+function initFU() {
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach((en,i)=>{
+      if(en.isIntersecting){
+        setTimeout(()=>en.target.classList.add('vis'),i*90);
+        obs.unobserve(en.target);
+      }
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.fu:not(.vis)').forEach(el=>obs.observe(el));
+}
+window.addEventListener('load',initFU);
+</script>
+</body>
+</html>
