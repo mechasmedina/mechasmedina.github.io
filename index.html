@@ -184,6 +184,8 @@ nav {
 .port-right p { font-size:1rem; color:var(--gray-text); line-height:1.9; margin-bottom:1rem; }
 .port-credits { font-size:1rem; color:var(--gray-text); line-height:2.1; }
 .port-img { margin-top:3rem; width:100%; display:block; }
+.port-video { margin-top:3rem; width:100%; aspect-ratio:16/9; }
+.port-video iframe { width:100%; height:100%; border:0; }
 
 /* CONTACT */
 .contact-wrap { padding:6rem 2rem 4rem; max-width:1080px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:start; }
@@ -303,12 +305,12 @@ footer a:hover { color:var(--dark-text); }
     <p class="sub">Tell me what you're building. I'll help you structure it, run it, and deliver it.</p>
     <div class="services-grid">
       <div class="service-card fu">
-        <img class="service-img" src="service-pm.png" alt="Project Management" onerror="this.style.display='none'">
+        <img class="service-img" src="service-pm.jpg" alt="Project Management" onerror="this.style.display='none'">
         <h3>Project Management</h3>
         <p>End-to-end ownership. From kickoff to delivery, I keep the work moving and the team aligned.</p>
       </div>
       <div class="service-card fu">
-        <img class="service-img" src="service-agile.pgn" alt="Agile Methods" onerror="this.style.display='none'">
+        <img class="service-img" src="service-agile.png" alt="Agile Methods" onerror="this.style.display='none'">
         <h3>Agile Methods</h3>
         <p>Structured sprints, clear priorities, no wasted cycles. I implement what actually works for your team.</p>
       </div>
@@ -557,6 +559,10 @@ footer a:hover { color:var(--dark-text); }
         <img src="Thelastmask-01.jpg" alt="The Last Mask">
         <div class="port-overlay"><span>Campaign The Last Mask</span></div>
       </div>
+      <div class="port-item" onclick="showProject('similac')">
+        <img src="Abbott-01.jpg" alt="TV Spot Similac">
+        <div class="port-overlay"><span>TV Spot Similac</span></div>
+      </div>
     </div>
   </div>
   <footer><p>Mechas Medina © 2026</p><a href="#">Privacy Policy</a></footer>
@@ -637,7 +643,9 @@ footer a:hover { color:var(--dark-text); }
         <div class="port-credits">Agencia: J. Walter Thompson<br>Cliente: Colmena<br>Creativos: Albretch Bake y Paola Barrero<br>Productora: Demente<br>Director: Mauricio Pardo<br>Ilustración: Leo Espinosa<br>Animación: Life<br>Sonorización: Sonic Boom<br>Productora ejecutiva: Mechas Medina</div>
       </div>
     </div>
-    <img class="port-img" src="Colmena-01.jpg" alt="TV Spot Colmena">
+    <div class="port-video">
+      <iframe src="https://player.vimeo.com/video/144442258" width="100%" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </div>
   <footer><p>Mechas Medina © 2026</p><a href="#">Privacy Policy</a></footer>
 </div>
@@ -655,7 +663,9 @@ footer a:hover { color:var(--dark-text); }
         <div class="port-credits">Agencia: Sancho BBDO<br>Radio y tv: Ana Maria Arango<br>Creativos: Carolina Amaya / Emiliano Vargas<br>Productora: Rhayuela Films<br>Director: Jose Luis Rugeles<br>DP: Sergio Ivan Castaño<br>Prod ejecutiva: Mechas Medina<br>Asist Dir: Nicolas Martinez<br>Post: El Cisne<br>Sonorización: Sonica</div>
       </div>
     </div>
-    <img class="port-img" src="Avianca-01.jpg" alt="TV Spot Avianca">
+    <div class="port-video">
+      <iframe src="https://player.vimeo.com/video/47729675" width="100%" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </div>
   <footer><p>Mechas Medina © 2026</p><a href="#">Privacy Policy</a></footer>
 </div>
@@ -673,7 +683,29 @@ footer a:hover { color:var(--dark-text); }
         <div class="port-credits">Cliente: Fundación Natalia Ponce de Leon<br>Agencia: J. Walter Thompson<br>VP Creativo: Rodolfo Borrel<br>Directores Creativos Ejecutivos: Claudia Murillo, Miguel Andres Norato<br>Director Creativos: Jaime Perea y Nicolas Acost<br>Copy Senior: Andres Peña<br>Directora de Arte: Claudia Castiblanco<br>Directora Producción: María Medina<br>Productora: Rhayuela Films<br>Director: Jaime Osorio<br>Productora ejecutiva: Ana Maria Tarazona<br>Postproducción: RMG Post<br>Sonorización: Sonic Boom</div>
       </div>
     </div>
-    <img class="port-img" src="Thelastmask-01.jpg" alt="Campaign The Last Mask">
+    <div class="port-video">
+      <iframe src="https://player.vimeo.com/video/201935503" width="100%" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+  <footer><p>Mechas Medina © 2026</p><a href="#">Privacy Policy</a></footer>
+</div>
+
+<!-- PROJECT: SIMILAC -->
+<div id="proj-similac" class="port-inner">
+  <div class="port-inner-wrap">
+    <a class="port-back" onclick="showPage('portfolio')">← Back to Portfolio</a>
+    <div class="port-layout">
+      <div class="port-left">
+        <h1>TV Spot Similac</h1>
+        <p class="port-label">Project Type</p><p class="port-val">Comerciales</p>
+      </div>
+      <div class="port-right">
+        <div class="port-credits">Agencia: Mutato<br>Directora Cuenta: Angelica Escruceria<br>Ejecutiva de cuenta: Ingry Cubillos<br>Directores Creativos: Nicolas Malpica y Paola Barrero<br>Copy: Camila Pardo<br>Gráfico: David Torres<br>Directora de Producción: Mechas Medina</div>
+      </div>
+    </div>
+    <div class="port-video">
+      <iframe src="https://player.vimeo.com/video/337352315" width="100%" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </div>
   <footer><p>Mechas Medina © 2026</p><a href="#">Privacy Policy</a></footer>
 </div>
